@@ -1,8 +1,8 @@
 module Categories
   class Vote < ActiveInteraction::Base
-    object :voter, class: User
+    object :voter, class: "User"
     object :category
-    object :nominee, class: Film
+    object :nominee, class: "Film"
 
     def execute
       ActiveRecord::Base.transaction do
