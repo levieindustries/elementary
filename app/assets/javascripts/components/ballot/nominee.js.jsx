@@ -21,7 +21,7 @@ var BallotNominee = React.createClass({
         onClick={this.handleVote}
         className={["nominee", this.isSelected()].join(" ").trim()}
       >
-        <div>{this.props.nominee.name}</div>
+        <div>{this.props.nominee.name}, {this.props.nominee.description}</div>
       </div>
     );
   }

@@ -33,6 +33,8 @@ var BallotCategory = React.createClass({
   },
 
   renderNominee: function(nominee) {
+    console.log(nominee.id, this.state.votedNomineeId);
+
     return (
       <BallotNominee
         key={nominee.id}

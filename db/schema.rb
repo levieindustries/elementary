@@ -31,10 +31,11 @@ ActiveRecord::Schema.define(version: 20170225142256) do
   end
 
   create_table "films", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "year",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",        null: false
+    t.string   "description"
+    t.integer  "year",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "nominations", force: :cascade do |t|
