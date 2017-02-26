@@ -7,7 +7,7 @@ var BallotNominee = React.createClass({
 
   isSelected: function() {
     if(this.props.isSelected) {
-      return "selected";
+      return "voted";
     };
   },
 
@@ -17,8 +17,11 @@ var BallotNominee = React.createClass({
 
   render: function() {
     return (
-      <div className={this.isSelected()}>
-        <div onClick={this.handleVote}>{this.props.nominee.name}</div>
+      <div
+        onClick={this.handleVote}
+        className={["nominee", this.isSelected()].join(" ").trim()}
+      >
+        <div>{this.props.nominee.name}</div>
       </div>
     );
   }

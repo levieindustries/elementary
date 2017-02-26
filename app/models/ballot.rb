@@ -14,4 +14,8 @@
 #
 
 class Ballot < ApplicationRecord
+  validates :user_id, uniqueness: { scope: [:year] }
+
+  belongs_to :user
+  has_many :votes, dependent: :destroy
 end

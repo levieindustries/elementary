@@ -1,8 +1,10 @@
 var BallotCategory = React.createClass({
   propTypes: {
+    id: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
     nominees: React.PropTypes.array.isRequired,
-    votedNomineeId: React.PropTypes.number
+    votedNomineeId: React.PropTypes.number,
+    winningNomineeId: React.PropTypes.number
   },
 
   getInitialState() {
@@ -13,6 +15,20 @@ var BallotCategory = React.createClass({
   },
 
   handleVote(nomineeId) {
+    console.log("Voting")
+
+    superagent.post('/votes')
+      .set('Accept', 'application/json')
+      .send({
+        authenticity_token: document.head.querySelector('meta[name="csrf-token"]').content,
+        vote: {
+          category_id: this.props.id,
+          nominee_id: nomineeId}
+        })
+      .end(function(err, res){
+        console.log("here", err, res)
+      });
+
     this.setState({votedNomineeId: nomineeId});
   },
 

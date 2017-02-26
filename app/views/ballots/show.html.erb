@@ -1,9 +1,8 @@
 <% @categories.each do |category| %>
   <%= react_component("BallotCategory",
+    id: category.id,
     name: category.name,
-    votedNomineeId: nil,
-    nominees: [
-      {id: 1, name: "La La Land", year: 2017},
-      {id: 2, name: "Manchester By The Sea", year: 2017}
-    ]) %>
+    voted_nominee_id: nil,
+    winning_nominee_id: nil,
+    nominees: category.nominees) %>
 <% end %>

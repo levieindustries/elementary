@@ -7,7 +7,7 @@ class BallotsController < ApplicationController
   end
 
   def create
-    ballot = current_user.ballots.where(year: 2017).first_or_create
+    ballot = current_user.current_ballot!
 
     if ballot.valid?
       redirect_to ballot_path(ballot)

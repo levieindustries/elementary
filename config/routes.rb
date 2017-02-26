@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :sessions
-  resources :votes, only: [:new, :create]
+  resources :votes, only: [:create]
   resources :categories, only: [:index]
   resources :ballots, only: [:show, :new, :create]
 
