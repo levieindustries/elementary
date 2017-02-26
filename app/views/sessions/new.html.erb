@@ -1,4 +1,8 @@
 <%= form_for :user, url: sessions_path, action: :post do |form| %>
-  <%= form.text_field :name %>
-  <%= form.submit :Start %>
+  <div class="form-group">
+    <h3><label for="name">What's your name?</label></h3>
+    <%= form.text_field :name, class: "form-control form-control-lg" %>
+  </div>
+
+  <%= form.submit "Get Started", class: "btn btn-primary btn-lg btn-block" %>
 <% end %>

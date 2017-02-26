@@ -15,5 +15,7 @@
 //= require react_ujs
 //= require components
 //= require underscore
+//= require tether
+//= require bootstrap
 //= require superagent
 //= require_tree .

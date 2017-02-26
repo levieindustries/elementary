@@ -8,18 +8,18 @@ git_source(:github) do |repo_name|
 end
 
 gem "active_interaction"
+gem "jquery-rails"
 gem "pg", "~> 0.18"
 gem "puma", "~> 3.0"
 gem "rails", "~> 5.0.1"
 gem "react-rails"
-gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "uglifier", ">= 1.3.0"
 
 source "https://rails-assets.org" do
-  gem 'rails-assets-bootstrap'
+  gem "rails-assets-bootstrap", "4.0.0.alpha.6"
 end
 
 group :development, :test do

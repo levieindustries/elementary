@@ -47,7 +47,7 @@ var BallotCategory = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className="category">
         <h1>{this.props.name}</h1>
         {_.map(this.state.nominees, this.renderNominee)}
       </div>

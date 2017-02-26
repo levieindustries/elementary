@@ -1,9 +1,25 @@
+$gold: #C79F27;
+
+body {
+  padding-top: 75px;
+}
+
+.btn-primary {
+  background-color: $gold !important;
+  border-color: $gold !important;
+}
+
+.category {
+  margin-top: 50px;
+}
+
 .nominee {
   border: 1px solid black;
   padding: 10px;
   cursor: pointer;
 
   &.voted {
-    background: red;
+    background: $gold !important;
+    color: #fff;
   }
 }

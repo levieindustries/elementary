@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
     @current_user
   end
 
+  helper_method \
+  def logged_in?
+    @current_user.present?
+  end
+
   def current_user=(user)
     @current_user = user
   end

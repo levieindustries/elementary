@@ -1,5 +1,7 @@
+<h1><%= current_user.name %></h1>
+
 <% @categories.each do |category| %>
-  <% vote = current_user.current_ballot!.votes.joins(:nomination).where(nominations: { category_id: category }).first %>
+  <% vote = @ballot.votes.joins(:nomination).where(nominations: { category_id: category }).first %>
   <% voted_nominee_id = vote.nomination.nominee_id if vote.present? %>
 
   <%= react_component("BallotCategory",
