@@ -1,6 +1,3 @@
 <% @categories.each do |category| %>
-  <% category.nominees.each do |nominee| %>
-    <%= nominee.name %>
-    <%= button_to "Vote", remote: true %>
-  <% end %>
+  <%= react_component("CategoryBallot", name: "John") %>
 <% end %>

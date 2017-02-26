@@ -9,6 +9,7 @@ gem "active_interaction"
 gem "pg", "~> 0.18"
 gem "puma", "~> 3.0"
 gem "rails", "~> 5.0.1"
+gem "react-rails"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
