@@ -33,13 +33,14 @@ var BallotCategory = React.createClass({
   },
 
   renderNominee: function(nominee) {
-    console.log(nominee.id, this.state.votedNomineeId);
+    console.log(nominee.id, this.props.winningNomineeId);
 
     return (
       <BallotNominee
         key={nominee.id}
         nominee={nominee}
         isSelected={nominee.id == this.state.votedNomineeId}
+        isWinner={nominee.id == this.props.winningNomineeId}
         handleVote={this.handleVote}
       />
     )
@@ -48,7 +49,7 @@ var BallotCategory = React.createClass({
   render: function() {
     return (
       <div className="category">
-        <h1>{this.props.name}</h1>
+        <h3 className="category-name">{this.props.name}</h3>
         {_.map(this.state.nominees, this.renderNominee)}
       </div>
     );

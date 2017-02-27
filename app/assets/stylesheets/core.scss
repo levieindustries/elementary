@@ -4,6 +4,10 @@ body {
   padding-top: 75px;
 }
 
+.btn {
+  white-space: normal !important;
+}
+
 .btn-primary {
   background-color: $gold !important;
   border-color: $gold !important;
@@ -21,5 +25,28 @@ body {
   &.voted {
     background: $gold !important;
     color: #fff;
+  }
+}
+
+.description {
+  font-size: 75%;
+}
+
+.category-name {
+  text-align: center;
+  margin-bottom: 20px;
+  // font-size: 1.5rem;
+  color: $gold;
+}
+
+.category .btn {
+  border-radius: 0;
+}
+
+.winner {
+  font-weight: bold !important;
+
+  .nominee-name:after {
+    content: " (Winner)"
   }
 }
