@@ -3,7 +3,7 @@
 <% @categories.each do |category| %>
   <% vote = @ballot.votes.joins(:nomination).where(nominations: { category_id: category }).first %>
   <% voted_nominee_id = vote.nomination.nominee_id if vote.present? %>
-  <% winner_id = category.nominations.where(winner: true).first.try :id %>
+  <% winner_id = category.nominations.where(winner: true).first.try(:nominee).try(:id) %>
 
   <%= react_component("BallotCategory",
     id: category.id,
