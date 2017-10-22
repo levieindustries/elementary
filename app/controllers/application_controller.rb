@@ -19,8 +19,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def not_authenticated
+    redirect_to login_path
+  end
+
   def require_login
-    redirect_to login_path unless current_user.present?
+    not_authenticated unless current_user.present?
   end
 
   def load_current_user
