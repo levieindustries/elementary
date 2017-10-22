@@ -1,36 +1,29 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login
-  before_action :require_empty_session, except: [:destroy]
 
   def new
-    @user = User.where(id: session[:current_user_id]).first_or_initialize
+    @user = User.new
   end
 
   def create
-    @user = User.where(name: user_params[:name]).first_or_create
-
-    if @user.valid?
-      session[:current_user_id] = @user.id
-      redirect_to new_ballot_path
+    if @user = login(user_params[:email], user_params[:password])
+      redirect_back_or_to(new_ballot_path, notice: 'Login successful')
     else
-      flash[:alert] = @user.errors.full_messages
-      render :new
+      @user = User.new(user_params.slice(:email))
+
+      flash.now[:alert] = 'Login failed'
+      render action: 'new'
     end
   end
 
   def destroy
-    current_user = nil
-    reset_session
-    redirect_to login_path
+    logout
+    redirect_to(root_url, notice: 'Logged out!')
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name)
-  end
-
-  def require_empty_session
-    redirect_to new_ballot_path if current_user.present?
+    params.require(:user).permit(:email, :password)
   end
 end

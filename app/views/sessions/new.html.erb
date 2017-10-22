@@ -1,7 +1,9 @@
-<%= form_for :user, url: sessions_path, action: :post do |form| %>
+<%= form_for @user, url: sessions_path, action: :post do |form| %>
   <div class="form-group">
-    <h3><label for="name">What's your name?</label></h3>
-    <%= form.text_field :name, class: "form-control form-control-lg" %>
+    <h3><label for="email">Email</label></h3>
+    <%= form.text_field :email, class: "form-control form-control-lg" %>
+    <h3><label for="password">Password</label></h3>
+    <%= form.password_field :password, class: "form-control form-control-lg" %>
   </div>
 
   <%= form.submit "Get Started", class: "btn btn-primary btn-lg btn-block" %>

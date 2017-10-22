@@ -8,7 +8,7 @@
 #  year        :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  winner      :boolean          default("false")
+#  winner      :boolean          default(FALSE)
 #
 # Indexes
 #
