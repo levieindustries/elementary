@@ -17,9 +17,8 @@ services:
     depends_on:
       - db
     # Uncomment for development
-    volumes:
-      - .:/code
-
+    # volumes:
+    #   - .:/code
   db:
     image: postgres:9.6.1-alpine
     volumes:

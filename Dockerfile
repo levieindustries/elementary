@@ -5,6 +5,7 @@ RUN apk --update add \
       curl \
       postgresql-client \
       nodejs \
+      make \
       tzdata
 
 WORKDIR /code

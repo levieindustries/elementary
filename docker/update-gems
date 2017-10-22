@@ -1,0 +1,11 @@
+#!/bin/sh
+
+apk --update add --virtual build-dependencies \
+  build-base \
+  ruby-dev \
+  postgresql-dev \
+  libc-dev \
+  linux-headers \
+  git \
+&& bundle update \
+&& apk del build-dependencies
