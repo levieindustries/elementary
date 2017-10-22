@@ -1,4 +1,4 @@
-FROM ruby:alpine
+FROM ruby:2.4.2-alpine3.6
 MAINTAINER Lars Levie <larslevie@gmail.com>
 
 RUN apk --update add \
