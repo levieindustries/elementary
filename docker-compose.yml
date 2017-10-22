@@ -2,6 +2,7 @@ version: "3"
 
 volumes:
   postgres:
+  bundle:
 
 services:
   web:
@@ -19,6 +20,8 @@ services:
     # Uncomment for development
     # volumes:
     #   - .:/code
+    # # Uncomment when adding/updating gems
+    #   # - bundle:/usr/local/bundle
   db:
     image: postgres:9.6.1-alpine
     volumes:
