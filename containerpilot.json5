@@ -1,0 +1,18 @@
+{
+  consul: "{{ .CONSUL_URL }}:8500",
+  jobs: [
+    {
+      name: "elementary-api",
+      exec: ["bundle", "exec", "rails", "s", "Puma", "-b", "0.0.0.0"],
+      port: 3000,
+      tags: ["consul-lb.url=api.elementary.com.dev"],
+      health: {
+        exec: "curl -fsSo /dev/null http://localhost:3000/health_check",
+        interval: 5,
+        ttl: 10,
+        timeout: "5s"
+      },
+      consul: {deregisterCriticalServiceAfter: '10m'}
+    },
+  ],
+}

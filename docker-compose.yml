@@ -5,7 +5,11 @@ volumes:
   bundle:
 
 services:
-  web:
+  client:
+    build: ../elementary-client
+    volumes:
+      - ../elementary-client:/code
+  api:
     build: .
     environment:
       POSTGRES_HOST: "db"
@@ -14,17 +18,30 @@ services:
       POSTGRES_PASSWORD: "postgres"
       TRUSTED_IP: 172.19.0.1
     ports:
-      - "3000:3000"
+      - 3000
     depends_on:
       - db
     # Uncomment for development
-    # volumes:
-    #   - .:/code
-    # # Uncomment when adding/updating gems
-    #   # - bundle:/usr/local/bundle
+    volumes:
+      - .:/code
+    # Uncomment when adding/updating gems
+      # - bundle:/usr/local/bundle
   db:
     image: postgres:9.6.1-alpine
     volumes:
       - postgres:/var/lib/postgresql/data
     ports:
-      - "5432"
+      - 5432
+  lb:
+    image: coderiety/consul-lb:master
+    environment:
+      USE_SSL: '0'
+    ports:
+      - 80:80
+    depends_on:
+      - consul
+  consul:
+    image: consul:1.0.0
+    hostname: consul
+    ports:
+      - 8500:8500
