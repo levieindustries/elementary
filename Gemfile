@@ -8,6 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "active_interaction"
+gem "graphql"
 gem "jquery-rails"
 gem "pg", "~> 0.18"
 gem "puma", "~> 3.0"
@@ -30,8 +31,9 @@ group :development do
   gem "annotate"
   gem "better_errors"
   gem "binding_of_caller"
+  gem "graphiql-rails"
   gem "listen", "~> 3.0.5"
   gem "pry-rails"
-  gem "spring-watcher-listen", "~> 2.0.0"
   gem "spring"
+  gem "spring-watcher-listen", "~> 2.0.0"
 end
