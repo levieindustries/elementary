@@ -6,7 +6,7 @@ volumes:
 
 services:
   client:
-    build: ../elementary-client
+    image: quay.io/levieindustries/elementary:latest
     volumes:
       - ../elementary-client:/code
   api:
