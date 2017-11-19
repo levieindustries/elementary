@@ -23,18 +23,26 @@
 #
 
 class User < ApplicationRecord
-  authenticates_with_sorcery!
+  include BCrypt
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
-  validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+  validates :password, length: { minimum: 3 }, if: -> {
+    new_record? || changes[:crypted_password]
+  }
 
   has_many :ballots, dependent: :destroy
   has_many :votes, through: :ballot
 
   def current_ballot!
     ballots.where(year: 2017).first_or_create
+  end
+
+  def password=(value)
+    self.crypted_password = Password.create(value)
+  end
+
+  def password
+    @password ||= Password.new(crypted_password)
   end
 end

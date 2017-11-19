@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 [
-  { name: "Lars" },
-  { name: "Stephen" }
+  { name: "Lars", email: "lars@example.com", password: "secret" },
+  { name: "Stephen", email: "stephen@example.com", password: "secret" }
 ].each do |attributes|
-  User.where(attributes).first_or_create
+  User.where(attributes.slice(:name)).first_or_create(attributes)
 end
 
 # [
