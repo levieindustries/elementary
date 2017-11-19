@@ -11,12 +11,6 @@ services:
       - ../elementary-client:/code
   api:
     build: .
-    environment:
-      POSTGRES_HOST: "db"
-      POSTGRES_PORT: "5432"
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-      TRUSTED_IP: 172.19.0.1
     ports:
       - 3000
     depends_on:
