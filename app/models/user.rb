@@ -23,6 +23,7 @@
 #
 
 class User < ApplicationRecord
+  include Keyable
   include BCrypt
 
   validates :name, presence: true
