@@ -10,7 +10,7 @@ services:
     volumes:
       - ../elementary-client:/code
   api:
-    build: .
+    image: quay.io/levieindustries/elementary-api:latest
     ports:
       - 3000
     depends_on:
