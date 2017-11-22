@@ -12,7 +12,8 @@
         ttl: 10,
         timeout: "5s"
       },
-      consul: {deregisterCriticalServiceAfter: '10m'}
+      consul: {deregisterCriticalServiceAfter: '10m'},
+      logging: {raw: true}
     },
   ],
 }
