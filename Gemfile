@@ -8,6 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "active_interaction"
+gem "bcrypt"
 gem "graphql"
 gem "jquery-rails"
 gem "pg", "~> 0.18"
@@ -16,7 +17,6 @@ gem "rack-cors"
 gem "rails", "~> 5.1.4"
 gem "react-rails", "~> 1.10.0"
 gem "sass-rails", "~> 5.0"
-gem "sorcery"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 

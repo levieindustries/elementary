@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  end
+
+  post "/graphql", to: "graphql#execute"
   resource :health_check, only: [:show]
-  resources :sessions
-  resources :votes, only: [:create]
-  resources :categories, only: [:index]
-  resource :ballot, only: [:show, :new, :create]
 
-  get "login", to: "sessions#new"
-  get "logout", to: "sessions#destroy"
-
-  root "sessions#new"
+  root "health_checks#show"
 end
