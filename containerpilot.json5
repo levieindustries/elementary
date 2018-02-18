@@ -8,7 +8,7 @@
       tags: ["consul-lb.url=api.elementary.com.dev"],
       health: {
         exec: "curl -fsSo /dev/null http://localhost:3000/health_check",
-        interval: 5,
+        interval: 10,
         ttl: 10,
         timeout: "5s"
       },

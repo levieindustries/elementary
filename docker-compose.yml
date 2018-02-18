@@ -6,16 +6,16 @@ volumes:
 
 services:
   client:
-    image: quay.io/levieindustries/elementary:latest
+    image: quay.io/levieindustries/elementary:authing-with-graphql
     # Uncomment for development
-    # environment:
-    #   WATCH: "1"
-    # volumes:
-    #   - ../elementary-client/bin:/code/bin
-    #   - ../elementary-client/etc:/code/etc
-    #   - ../elementary-client/src:/code/src
-    #   - ../elementary-client/.eslintrc.json:/code/.eslintrc.json
-    #   - ../elementary-client/.stylelintrc.json:/code/.stylelintrc.json
+    environment:
+      WATCH: "1"
+    volumes:
+      - ../elementary-client/bin:/code/bin
+      - ../elementary-client/etc:/code/etc
+      - ../elementary-client/src:/code/src
+      - ../elementary-client/.eslintrc.json:/code/.eslintrc.json
+      - ../elementary-client/.stylelintrc.json:/code/.stylelintrc.json
   api:
     image: quay.io/levieindustries/elementary-api:latest
     ports:
@@ -23,10 +23,10 @@ services:
     depends_on:
       - db
     # Uncomment for development
-    # volumes:
-    #   - .:/code
+    volumes:
+      - .:/code
     # Uncomment when adding/updating gems
-      # - bundle:/bundle
+      - bundle:/bundle
   db:
     image: postgres:10.0-alpine
     volumes:
@@ -42,7 +42,7 @@ services:
     depends_on:
       - consul
   consul:
-    image: consul:1.0.0
+    image: consul:1.0.1
     hostname: consul
     ports:
       - 8500:8500

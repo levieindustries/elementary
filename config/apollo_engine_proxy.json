@@ -1,0 +1,10 @@
+{
+  "apiKey": "service:levieindustries-elementary:Wah2f5qtjuZfz7g6JbL8qQ",
+  "logging": { "level": "INFO" },
+  "origins": [{
+    "http": { "url": "http://api.elementary.com.dev:3000/graphql" }
+  }],
+  "frontends": [{
+    "host": "api.elementary.com.dev", "port": 3001, "endpoint": "/graphql"
+  }]
+}
